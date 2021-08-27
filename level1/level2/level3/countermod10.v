@@ -17,11 +17,13 @@ end
 always @ (negedge clrn)
 begin
     ones = 4'b0000;
+    zero = 1'b1;
 end
 
 always @ (negedge loadn)
 begin
-    ones <= data;
+    ones = data;
+    zero = (ones == 4'b0000) ? 1'b1 : 1'b0;
 end
 
 always @ (posedge clk)

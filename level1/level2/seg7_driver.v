@@ -8,7 +8,7 @@ module seg7_driver(
     output wire [6:0] minutes_out
 );
 
-assign seconds_ones_out = (seconds_ones == 4'b0000)? 7'b0000001: 
+assign seconds_ones_out = (seconds_ones == 4'b0000)? 7'b0000001:  // active-LOW coded
                           (seconds_ones == 4'b0001)? 7'b1001111:
                           (seconds_ones == 4'b0010)? 7'b0010010: 
                           (seconds_ones == 4'b0011)? 7'b0000110:
@@ -20,7 +20,7 @@ assign seconds_ones_out = (seconds_ones == 4'b0000)? 7'b0000001:
                           (seconds_ones == 4'b1001)? 7'b0000100:
                           8'b1111111;
 
-assign seconds_tens_out = (seconds_tens == 4'b0000)? 7'b0000001: 
+assign seconds_tens_out = (seconds_tens == 4'b0000)? 7'b0000001:  // active-LOW coded
                           (seconds_tens == 4'b0001)? 7'b1001111:
                           (seconds_tens == 4'b0010)? 7'b0010010: 
                           (seconds_tens == 4'b0011)? 7'b0000110:
@@ -32,7 +32,7 @@ assign seconds_tens_out = (seconds_tens == 4'b0000)? 7'b0000001:
                           (seconds_tens == 4'b1001)? 7'b0000100:
                           8'b1111111;
 
-assign minutes_out =      (minutes == 4'b0000)? 7'b0000001: 
+assign minutes_out =      (minutes == 4'b0000)? 7'b0000001:  // active-LOW coded
                           (minutes == 4'b0001)? 7'b1001111:
                           (minutes == 4'b0010)? 7'b0010010: 
                           (minutes == 4'b0011)? 7'b0000110:
