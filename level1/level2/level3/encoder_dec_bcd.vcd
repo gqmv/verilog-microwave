@@ -1,0 +1,58 @@
+$date
+	Fri Aug 27 11:09:44 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module encoder_dec_bcd_test $end
+$var wire 1 ! loadn $end
+$var wire 4 " bcd [3:0] $end
+$var reg 10 # decimal [9:0] $end
+$var reg 1 $ enable $end
+$scope module dut $end
+$var wire 10 % decimal [9:0] $end
+$var wire 1 $ enable $end
+$var reg 4 & bcd [3:0] $end
+$var reg 1 ! loadn $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx &
+bx %
+0$
+bx #
+bx "
+0!
+$end
+#1
+1!
+b10 "
+b10 &
+b100 #
+b100 %
+#6
+0!
+b0x #
+b0x %
+#7
+0!
+b11 #
+b11 %
+#12
+0!
+b0x #
+b0x %
+#13
+0!
+b110 #
+b110 %
+#18
+0!
+b0x #
+b0x %
+#19
