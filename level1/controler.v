@@ -1,3 +1,7 @@
+`include "level2/timer.v"
+`include "level2/encoder.v"
+`include "level2/control.v"
+`include "level2/seg7_driver.v"
 module controler(
     input wire [9:0] keypad,
     input wire clk,
