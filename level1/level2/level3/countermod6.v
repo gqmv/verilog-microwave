@@ -19,11 +19,6 @@ begin
     tens = 4'b0000;
 end
 
-always @ (negedge loadn)
-begin
-    tens <= data;
-end
-
 always @ (posedge clk)
 begin
     if (en) 
@@ -48,8 +43,12 @@ begin
             end // 0 -> 6
             default: tens <= 4'b0000;
         endcase
-        else begin 
+    else begin 
         tc <= 0;
+
+        if(!loadn)
+            tens <= data;
+
         end
     end
     

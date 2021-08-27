@@ -54,8 +54,12 @@ begin
             end // 0 -> 9
             default: ones <= 4'b0000;
         endcase
-        else begin
+    else begin
         tc <= 0;
+
+        if(!loadn)
+            ones <= data;
+        
         end
     end
 endmodule
