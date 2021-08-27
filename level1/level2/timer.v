@@ -1,5 +1,8 @@
-`include "level3/countermod10.v"
-`include "level3/countermod6.v"
+`include "level2/level3/countermod10.v"
+`include "level2/level3/countermod6.v"
+// for local testing
+// `include "level3/countermod10.v"
+// `include "level3/countermod6.v"
 
 module timer(output wire[3:0] minutes, tens_secs, secs,
              output wire      timer_done,
