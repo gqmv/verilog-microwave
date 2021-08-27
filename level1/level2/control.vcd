@@ -1,0 +1,101 @@
+$date
+	Fri Aug 27 15:40:35 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module control_test $end
+$var wire 1 ! mag_on $end
+$var reg 1 " clrn $end
+$var reg 1 # door_closed $end
+$var reg 1 $ startn $end
+$var reg 1 % stopn $end
+$var reg 1 & timer_done $end
+$scope module dut $end
+$var wire 1 " clrn $end
+$var wire 1 # door_closed $end
+$var wire 1 ! mag_on $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$var wire 1 ' latch_set $end
+$var wire 1 ( latch_reset $end
+$var wire 1 ) Q $end
+$scope module on_off_logic_inst $end
+$var wire 1 " clrn $end
+$var wire 1 # door_closed $end
+$var wire 1 ( reset $end
+$var wire 1 * reset_internal $end
+$var wire 1 ' set $end
+$var wire 1 + set_internal $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$upscope $end
+$scope module sr_latch_inst $end
+$var wire 1 ) Q $end
+$var wire 1 , Q_bar $end
+$var wire 1 - Q_bar_int $end
+$var wire 1 . Q_int $end
+$var wire 1 ( R $end
+$var wire 1 ' S $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1.
+0-
+0,
+1+
+0*
+1)
+0(
+1'
+0&
+1%
+0$
+1#
+1"
+1!
+$end
+#10
+1,
+1-
+0!
+0)
+0.
+1(
+1*
+0'
+0+
+0%
+1$
+#20
+1!
+1)
+1.
+0,
+0-
+0(
+0*
+1'
+1+
+1%
+0$
+#30
+1,
+1-
+0!
+0)
+0.
+1(
+1*
+0'
+0+
+0#
+#130

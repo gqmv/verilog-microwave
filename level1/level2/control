@@ -1,0 +1,148 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002884195c7f0 .scope module, "control_test" "control_test" 2 2;
+ .timescale 0 0;
+v0000028841a3a020_0 .var "clrn", 0 0;
+v0000028841a3a0c0_0 .var "door_closed", 0 0;
+v0000028841a3a8e0_0 .net "mag_on", 0 0, L_00000288419e3610;  1 drivers
+v0000028841a3a200_0 .var "startn", 0 0;
+v0000028841a39080_0 .var "stopn", 0 0;
+v0000028841a39940_0 .var "timer_done", 0 0;
+S_000002884195c980 .scope module, "dut" "control" 2 10, 3 3 0, S_000002884195c7f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "startn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clrn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "mag_on";
+L_00000288419e3610 .functor BUFZ 1, L_00000288419e2960, C4<0>, C4<0>, C4<0>;
+v0000028841a3a7a0_0 .net "Q", 0 0, L_00000288419e2960;  1 drivers
+v0000028841a3af20_0 .net "clrn", 0 0, v0000028841a3a020_0;  1 drivers
+v0000028841a39120_0 .net "door_closed", 0 0, v0000028841a3a0c0_0;  1 drivers
+v0000028841a3a840_0 .net "latch_reset", 0 0, L_00000288419e2810;  1 drivers
+v0000028841a39800_0 .net "latch_set", 0 0, L_00000288419d8e20;  1 drivers
+v0000028841a3a5c0_0 .net "mag_on", 0 0, L_00000288419e3610;  alias, 1 drivers
+v0000028841a3a660_0 .net "startn", 0 0, v0000028841a3a200_0;  1 drivers
+v0000028841a3ac00_0 .net "stopn", 0 0, v0000028841a39080_0;  1 drivers
+v0000028841a394e0_0 .net "timer_done", 0 0, v0000028841a39940_0;  1 drivers
+S_000002884195cb10 .scope module, "on_off_logic_inst" "on_off_logic" 3 14, 4 1 0, S_000002884195c980;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "startn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clrn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "set";
+    .port_info 6 /OUTPUT 1 "reset";
+L_00000288419d9050 .functor NOT 1, v0000028841a3a200_0, C4<0>, C4<0>, C4<0>;
+L_00000288419d90c0 .functor AND 1, L_00000288419d9050, v0000028841a3a0c0_0, C4<1>, C4<1>;
+L_00000288419d8bf0 .functor NOT 1, v0000028841a39940_0, C4<0>, C4<0>, C4<0>;
+L_00000288419d9210 .functor AND 1, L_00000288419d90c0, L_00000288419d8bf0, C4<1>, C4<1>;
+L_00000288419d8cd0 .functor NOT 1, v0000028841a3a0c0_0, C4<0>, C4<0>, C4<0>;
+L_00000288419d8f70 .functor NOT 1, v0000028841a3a020_0, C4<0>, C4<0>, C4<0>;
+L_00000288419d8d40 .functor OR 1, L_00000288419d8cd0, L_00000288419d8f70, C4<0>, C4<0>;
+L_00000288419d9130 .functor NOT 1, v0000028841a39080_0, C4<0>, C4<0>, C4<0>;
+L_00000288419d91a0 .functor OR 1, L_00000288419d8d40, L_00000288419d9130, C4<0>, C4<0>;
+L_00000288419d8db0 .functor OR 1, L_00000288419d91a0, v0000028841a39940_0, C4<0>, C4<0>;
+L_00000288419d8e20 .functor BUFZ 1, L_00000288419d9210, C4<0>, C4<0>, C4<0>;
+L_00000288419e2810 .functor BUFZ 1, L_00000288419d8db0, C4<0>, C4<0>, C4<0>;
+v00000288419d8110_0 .net *"_ivl_0", 0 0, L_00000288419d9050;  1 drivers
+v00000288419d8750_0 .net *"_ivl_10", 0 0, L_00000288419d8f70;  1 drivers
+v00000288419d87f0_0 .net *"_ivl_12", 0 0, L_00000288419d8d40;  1 drivers
+v00000288419d7e90_0 .net *"_ivl_14", 0 0, L_00000288419d9130;  1 drivers
+v00000288419d7d50_0 .net *"_ivl_16", 0 0, L_00000288419d91a0;  1 drivers
+v00000288419d8890_0 .net *"_ivl_2", 0 0, L_00000288419d90c0;  1 drivers
+v00000288419d7df0_0 .net *"_ivl_4", 0 0, L_00000288419d8bf0;  1 drivers
+v00000288419d8a70_0 .net *"_ivl_8", 0 0, L_00000288419d8cd0;  1 drivers
+v00000288419d7fd0_0 .net "clrn", 0 0, v0000028841a3a020_0;  alias, 1 drivers
+v00000288419d8430_0 .net "door_closed", 0 0, v0000028841a3a0c0_0;  alias, 1 drivers
+v00000288419d8930_0 .net "reset", 0 0, L_00000288419e2810;  alias, 1 drivers
+v00000288419d8070_0 .net "reset_internal", 0 0, L_00000288419d8db0;  1 drivers
+v00000288419d8250_0 .net "set", 0 0, L_00000288419d8e20;  alias, 1 drivers
+v00000288419d8570_0 .net "set_internal", 0 0, L_00000288419d9210;  1 drivers
+v00000288419d81b0_0 .net "startn", 0 0, v0000028841a3a200_0;  alias, 1 drivers
+v00000288419d82f0_0 .net "stopn", 0 0, v0000028841a39080_0;  alias, 1 drivers
+v00000288419d89d0_0 .net "timer_done", 0 0, v0000028841a39940_0;  alias, 1 drivers
+S_000002884195d4b0 .scope module, "sr_latch_inst" "sr_latch" 3 18, 5 1 0, S_000002884195c980;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "S";
+    .port_info 1 /INPUT 1 "R";
+    .port_info 2 /OUTPUT 1 "Q";
+    .port_info 3 /OUTPUT 1 "Q_bar";
+L_00000288419e3450 .functor OR 1, L_00000288419e2810, L_00000288419e2b90, C4<0>, C4<0>;
+L_00000288419e2f80 .functor NOT 1, L_00000288419e3450, C4<0>, C4<0>, C4<0>;
+L_00000288419e3370 .functor OR 1, L_00000288419d8e20, L_00000288419e2f80, C4<0>, C4<0>;
+L_00000288419e2b90 .functor NOT 1, L_00000288419e3370, C4<0>, C4<0>, C4<0>;
+L_00000288419e2960 .functor BUFZ 1, L_00000288419e2f80, C4<0>, C4<0>, C4<0>;
+L_00000288419e2ea0 .functor BUFZ 1, L_00000288419e2b90, C4<0>, C4<0>, C4<0>;
+v00000288419d84d0_0 .net "Q", 0 0, L_00000288419e2960;  alias, 1 drivers
+v00000288419d7b70_0 .net "Q_bar", 0 0, L_00000288419e2ea0;  1 drivers
+v0000028841a39b20_0 .net "Q_bar_int", 0 0, L_00000288419e2b90;  1 drivers
+v0000028841a39760_0 .net "Q_int", 0 0, L_00000288419e2f80;  1 drivers
+v0000028841a39f80_0 .net "R", 0 0, L_00000288419e2810;  alias, 1 drivers
+v0000028841a3ae80_0 .net "S", 0 0, L_00000288419d8e20;  alias, 1 drivers
+v0000028841a398a0_0 .net *"_ivl_0", 0 0, L_00000288419e3450;  1 drivers
+v0000028841a3a160_0 .net *"_ivl_4", 0 0, L_00000288419e3370;  1 drivers
+    .scope S_000002884195c7f0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a3a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a0c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a39940_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a39080_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a020_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a0c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a39940_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a39080_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a020_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a3a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a0c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a39940_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a39080_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000028841a3a020_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000028841a3a0c0_0, 0, 1;
+    %delay 100, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000002884195c7f0;
+T_1 ;
+    %vpi_call 2 22 "$dumpfile", "control.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002884195c7f0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "control_test.v";
+    "./control.v";
+    "./level3/on_off_logic.v";
+    "./level3/sr_latch.v";

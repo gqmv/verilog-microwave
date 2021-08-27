@@ -1,0 +1,77 @@
+$date
+	Fri Aug 27 15:16:54 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module on_off_logic_test $end
+$var wire 1 ! set $end
+$var wire 1 " reset $end
+$var reg 1 # clrn $end
+$var reg 1 $ door_closed $end
+$var reg 1 % startn $end
+$var reg 1 & stopn $end
+$var reg 1 ' timer_done $end
+$scope module dut $end
+$var wire 1 # clrn $end
+$var wire 1 $ door_closed $end
+$var wire 1 " reset $end
+$var wire 1 ( reset_internal $end
+$var wire 1 ! set $end
+$var wire 1 ) set_internal $end
+$var wire 1 % startn $end
+$var wire 1 & stopn $end
+$var wire 1 ' timer_done $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0)
+1(
+0'
+0&
+0%
+0$
+0#
+1"
+0!
+$end
+#10
+1&
+1'
+#20
+1!
+1)
+1#
+0&
+0'
+1$
+#30
+0!
+0)
+1&
+1'
+#40
+1"
+1(
+0#
+0&
+0'
+0$
+1%
+#50
+1'
+#60
+1&
+0'
+1$
+#70
+1#
+1'
+#80
+0#
+0&
