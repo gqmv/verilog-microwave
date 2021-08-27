@@ -20,11 +20,14 @@ initial begin
     assign en = 0; 
     assign clrn = 1;
     assign data = 4'b0110;
-    #5 assign loadn = 0; 
-    #5 assign loadn = 1; 
-    #5 assign en = 1;
 
-    #5 $finish; 
+    #5 assign loadn = 0;
+
+    #5 assign loadn = 1;
+
+    #5 assign en = 1; 
+
+    #400 $finish;
 end
 
 endmodule
