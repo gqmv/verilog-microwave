@@ -59,6 +59,7 @@ module controler_test();
             #100000;
             startn = 1;
             #300000000;
+            $finish;
     end
 
 endmodule
