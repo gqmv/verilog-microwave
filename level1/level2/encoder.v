@@ -19,7 +19,7 @@ module encoder(
     wire clr, mux_d0, mux_d1;
 
     encoder_dec_bcd dec_to_bcd(.decimal(numpad), .enable(enable), .bcd(D), .loadn(loadn));
-    counter0_7 debouncer(.clk(clk), .clear(loadn), .out(mux_d0));
+    counter0_7 debouncer(.clk(clk), .clear(clr), .out(mux_d0));
     counterdiv100 div100(.clk(clk), .clk_out(mux_d1));
     mux2_1 mux(.selector(enable), .d0(mux_d0), .d1(mux_d1), .out(pgt_1Hz));
 
