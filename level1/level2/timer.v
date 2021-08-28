@@ -1,8 +1,8 @@
 `include "level2/level3/countermod10.v"
 `include "level2/level3/countermod6.v"
 // for local testing
-// `include "level3/countermod10.v"
-// `include "level3/countermod6.v"
+//`include "level3/countermod10.v"
+//`include "level3/countermod6.v"
 
 module timer(output wire[3:0] minutes, tens_secs, secs,
              output wire      timer_done,
@@ -19,12 +19,12 @@ module timer(output wire[3:0] minutes, tens_secs, secs,
     wire tc2;
     wire zero2;
 
-    countermod6 tens_secs_counter(secs, loadn, clearn, CLK, enable & zero1, tens_secs, tc2, zero2);
+    countermod6 tens_secs_counter(secs, loadn, clearn, CLK, tc1, tens_secs, tc2, zero2);
 
     wire tc3;
     wire zero3;
 
-    countermod10 minutes_counter(tens_secs, loadn, clearn, CLK, enable & zero1 & zero2, minutes, tc3, zero3);
+    countermod10 minutes_counter(tens_secs, loadn, clearn, CLK, tc2, minutes, tc3, zero3);
 
 
     assign timer_done = (zero1) & (zero2) & (zero3);  // the zero signal

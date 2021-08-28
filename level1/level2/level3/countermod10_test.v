@@ -18,9 +18,9 @@ initial begin
 
     #5 assign loadn = 0;
 
-    #5 assign loadn = 1;
+    #10 assign loadn = 1;
 
-    #5 assign en = 1; 
+    #5 assign en = 0; 
 
     // assign loadn = 1; 
     // assign en = 0; 
