@@ -1,8 +1,8 @@
 module sr_latch (
-    input S,
-    input R,
-    output Q,
-    output Q_bar
+    input wire S,
+    input wire R,
+    output wire Q,
+    output wire Q_bar
 );
 
 wire Q_int, Q_bar_int;

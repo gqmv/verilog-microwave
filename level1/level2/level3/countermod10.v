@@ -6,25 +6,19 @@ module countermod10 (
     input wire en,
     output reg [3:0] ones,
     output reg tc,
-    output reg zero
+    output wire zero
 );
 
 initial begin
     tc = 0;
-    zero = 0;
 end
 
 always @ (negedge clrn)
 begin
     ones = 4'b0000;
-    zero = 1'b1;
 end
 
-always @ (negedge loadn)
-begin
-    ones = data;
-    zero = (ones == 4'b0000) ? 1'b1 : 1'b0;
-end
+assign zero = (ones == 4'b0000) ? 1'b1 : 1'b0;
 
 always @ (posedge clk)
 begin
@@ -33,7 +27,6 @@ begin
             4'b1001: begin
                 ones <= 4'b1000;
                 tc <= 1'b0;
-                zero <= 1'b0;
             end
             4'b1000: ones <= 4'b0111; // 8 -> 7
             4'b0111: ones <= 4'b0110; // 7 -> 6
@@ -45,21 +38,20 @@ begin
             4'b0001: begin 
                 ones <= 4'b0000;
                 tc <= 1'b1;
-                zero <= 1'b1;
             end  // 1 -> 0
             4'b0000: begin
                 ones <= 4'b1001;
                 tc <= 1'b0;
-                zero <= 1'b0;
             end // 0 -> 9
             default: ones <= 4'b0000;
         endcase
+
     else begin
         tc <= 0;
 
         if(!loadn)
             ones <= data;
         
-        end
     end
+end
 endmodule

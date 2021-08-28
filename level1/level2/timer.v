@@ -5,7 +5,7 @@
 // `include "level3/countermod6.v"
 
 module timer(output wire[3:0] minutes, tens_secs, secs,
-             output wire      timer_done,
+             output reg       timer_done,
              input  wire[3:0] digit,
              input  wire      clearn, enable, loadn, CLK);  // 1Hz clock
              // the timer must be disabled by the magnetron_control
@@ -26,12 +26,12 @@ module timer(output wire[3:0] minutes, tens_secs, secs,
 
     countermod10 minutes_counter(tens_secs, loadn, clearn, CLK, enable & zero1 & zero2, minutes, tc3, zero3);
 
-
-    assign timer_done = (zero1) & (zero2) & (zero3);  // the zero signal
+    always @(zero1 or zero2 or zero3) begin
+        timer_done = zero1 & zero2 & zero3; // the zero signal
+    end
 
     // if loadn is LOW, the timer is in load mode and will only receive
-    // clock posedges for loading a digit. If loadn is HIGH, the timer is
-    // in count mode and will receive a clock posedge signal every second
+    // clock posedges for loading a digit
     
 
 endmodule

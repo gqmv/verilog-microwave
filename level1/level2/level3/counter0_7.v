@@ -1,6 +1,6 @@
 module counter0_7 (
     input wire clk,
-    input wire clear,
+    input wire numpad_pressed,
     output reg out
 );
 
@@ -12,13 +12,13 @@ initial begin // Defines initial values
     count <= 0;
 end
 
-always @(negedge clear) begin // When clear is deactivated, starts the counter.
+always @(posedge numpad_pressed) begin // When numpad is pressed, starts the counter.
     if (count == 3'd0) begin
         is_counting = 1;
     end
 end
 
-always @(posedge clear) begin // When clear is activated, stops the counter if count is at 7.
+always @(negedge numpad_pressed) begin // When numpad is released, stops the counter if count is at 7.
     if (count == 3'd7) begin
         is_counting = 0;
         count = 3'd0;

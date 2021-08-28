@@ -6,18 +6,19 @@ module countermod6 (
     input wire en,
     output reg [3:0] tens,
     output reg tc,
-    output reg zero
+    output wire zero
 );
 
 initial begin
     tc = 0;
-    zero = 0;
 end
 
 always @ (negedge clrn)
 begin
     tens = 4'b0000;
 end
+
+assign zero = (tens == 4'b0000) ? 1'b1 : 1'b0;
 
 always @ (posedge clk)
 begin
@@ -34,22 +35,21 @@ begin
             4'b0001: begin 
                 tens <= 4'b0000;
                 tc <= 1'b1;
-                zero <= 1'b1;
             end  // 1 -> 0
             4'b0000: begin
-                tens <= 4'b0110;
+                tens <= 4'b0101;
                 tc <= 1'b0;
-                zero <= 1'b0;
-            end // 0 -> 6
+            end // 0 -> 5
             default: tens <= 4'b0000;
         endcase
+    
     else begin 
         tc <= 0;
 
         if(!loadn)
             tens <= data;
 
-        end
     end
+end
     
 endmodule

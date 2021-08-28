@@ -13,10 +13,9 @@ always @(posedge clk) begin
     if (count == 7'd99) begin
         reached100 <= 1;
         count <= 0;
-end
-else begin
-    reached100 <= 0;
-end
+    end
+    else
+        reached100 <= 0;
 end
 
 endmodule

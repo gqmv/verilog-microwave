@@ -1,3 +1,4 @@
+`timescale 1ms/1ms
 `include "controler.v"
 module controler_test();
     reg [9:0] keypad;
@@ -14,7 +15,7 @@ module controler_test();
 
     initial clk = 0;
 
-    always # 5 clk = ~clk;
+    always #5 clk = ~clk;
 
     initial begin
         $dumpfile("controler.vcd");
@@ -25,41 +26,45 @@ module controler_test();
             keypad = 9'b000000000;
             door_closed = 0;
             stopn = 1;
-            clearn = 1;
             startn = 1;
 
-            // Digitando o 3
-            #120000;
-            keypad = 9'b000001000;
-            #110000;
+            // Inicializando o contador
+            clearn = 1; #1;
+            clearn = 0; #1;
+            clearn = 1;
+
+            // Digitando o 2
+            #1100;
+            keypad = 9'b000000100;
+            #1100;
             keypad = 9'b000000000;
 
             // Digitando o 5
-            #110000;
+            #1100;
             keypad = 9'b000100000;
-            #110000;
+            #1100;
             keypad = 9'b000000000;
 
             // Digitando o 9
-            #110000;
+            #1100;
             keypad = 10'b1000000000;
-            #110000;
+            #1100;
             keypad = 9'b000000000;
 
             // Tentando abrir
-            #110000;
+            #1100;
             startn = 0;
-            #110000;
+            #1100;
             startn = 1;
-            #510000;
+            #1100;
             // Fechando a porta
             door_closed = 1;
-            #100000;
+            #1000;
             startn = 0;
-            #100000;
+            #1000;
             startn = 1;
-            #300000000;
-            $finish;
+            #3000000;
+            $finish();
     end
 
 endmodule
